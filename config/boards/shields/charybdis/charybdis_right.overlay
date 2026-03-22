@@ -62,6 +62,8 @@
         // Axis configuration based on user feedback
         zephyr,axis-x = <0>; // Map sensor X to output X
         zephyr,axis-y = <1>; // Map sensor Y to output Y
+        invert-x;
+        invert-y;
     };
 };
 
