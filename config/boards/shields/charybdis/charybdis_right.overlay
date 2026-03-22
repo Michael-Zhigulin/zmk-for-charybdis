@@ -58,13 +58,11 @@
         spi-max-frequency = <2000000>;
         // The new Zephyr driver requires motion-gpios instead of irq-gpios.
         motion-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        // Zephyr driver requires explicitly assigning axis codes.
-        // We swap X and Y, and invert both, to match exactly the old driver's 
-        // 90-degree clockwise + X-invert behavior.
-        zephyr,axis-x = <1>; // INPUT_REL_Y
-        zephyr,axis-y = <0>; // INPUT_REL_X
-        invert-x;
-        invert-y;
+        
+        // Axis configuration based on user feedback
+        zephyr,axis-x = <0>; // Map sensor X to output X
+        zephyr,axis-y = <1>; // Map sensor Y to output Y
+        invert-x;            // Invert X axis only
     };
 };
 
