@@ -75,13 +75,22 @@
         compatible = "zmk,input-listener";
         device = <&trackball>;
 
-        // Включаем режим скролла на слое
-        scroller {
+        // Вертикальный скролл на 5 слое
+        v_scroller {
             layers = <5>;
             input-processors = 
-                <&zip_x_scaler 1 40>,
-                <&zip_y_scaler 1 160>,
+                <&zip_x_scaler 0 1>,   // Отключаем ось X
+                <&zip_y_scaler 1 200>, // Настраиваем скорость Y
                 <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>,
+                <&zip_xy_to_scroll_mapper>;
+        };
+
+        // Горизонтальный скролл на 6 слое
+        h_scroller {
+            layers = <6>;
+            input-processors = 
+                <&zip_x_scaler 1 50>,  // Настраиваем скорость X
+                <&zip_y_scaler 0 1>,   // Отключаем ось Y
                 <&zip_xy_to_scroll_mapper>;
         };
     };
