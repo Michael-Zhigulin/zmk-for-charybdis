@@ -62,7 +62,6 @@
         // Axis configuration based on user feedback
         zephyr,axis-x = <0>; // Map sensor X to output X
         zephyr,axis-y = <1>; // Map sensor Y to output Y
-        invert-x;            // Invert X axis only
     };
 };
 
@@ -73,5 +72,6 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
+        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)>;
     };
 };
