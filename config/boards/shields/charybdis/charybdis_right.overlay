@@ -59,13 +59,12 @@
         // The new Zephyr driver requires motion-gpios instead of irq-gpios.
         motion-gpios = <&gpio0 6 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
         // Zephyr driver requires explicitly assigning axis codes.
-        // INPUT_REL_X = 0, INPUT_REL_Y = 1
-        zephyr,axis-x = <0>; 
-        zephyr,axis-y = <1>; 
-        // Note: The new driver does not natively know about scroll-layers. 
-        // We leave them here to see if ZMK's pointing driver handles it, but 
-        // if not, we might need a separate ZMK input processor.
-        // scroll-layers = <1>;
+        // We swap X and Y, and invert both, to match exactly the old driver's 
+        // 90-degree clockwise + X-invert behavior.
+        zephyr,axis-x = <1>; // INPUT_REL_Y
+        zephyr,axis-y = <0>; // INPUT_REL_X
+        invert-x;
+        invert-y;
     };
 };
 
@@ -76,6 +75,5 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&zip_xy_transform (INPUT_TRANSFORM_XY_SWAP | INPUT_TRANSFORM_X_INVERT)>;
     };
 };
