@@ -198,4 +198,17 @@
                 
         };*/
     };
+
+    // Unicode keys
+    unicode_dot: unicode_dot {
+        compatible = "zmk,behavior-unicode";
+        #binding-cells = <0>;
+        value = <0x002e>; // .
+    };
+
+    unicode_comma: unicode_comma {
+        compatible = "zmk,behavior-unicode";
+        #binding-cells = <0>;
+        value = <0x002c>; // ,
+    };
 };
