@@ -1,11 +1,11 @@
 #include <dt-bindings/zmk/mouse.h>
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <behaviors/unicode.dtsi>
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <behaviors/unicode.dtsi>
 
 #undef ZMK_POINTING_DEFAULT_MOVE_VAL
 #undef ZMK_POINTING_DEFAULT_SCRL_VAL
@@ -92,7 +92,7 @@
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,,,,,,,,,,,,,,,,
+                // 编码器1：上下滚动,,,,,,,,,,,,,,,,,
                 <&scroll_horizontal_encoder>;
 
             // 编码器2：左右滚动
@@ -111,11 +111,11 @@
 
         layer_3 {
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans  &trans  &trans
-                        &trans  &trans  &trans    &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans      &trans        &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans      &trans        &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &trans      &trans        &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans    &kp KP_DOT  &kp KP_COMMA  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans    &trans      &trans
                                 &trans  &trans    &trans
             >;
         };
