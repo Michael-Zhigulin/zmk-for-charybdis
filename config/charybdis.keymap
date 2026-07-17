@@ -9,7 +9,7 @@
 #include <behaviors/unicode.dtsi>
 
 &uc {
-    default-mode = <UC_MODE_WIN>;
+    default-mode = <UC_MODE_WIN_ALT>;
 };
 
 #undef ZMK_POINTING_DEFAULT_MOVE_VAL
